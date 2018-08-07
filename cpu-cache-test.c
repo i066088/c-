@@ -5,8 +5,8 @@ int main (void)
   int i, j;
   for (i = 0; i < 10000; i++)
     for (j = 0; j < 10000; j++)
-       array[j][i]++; //bad perf, see output 1
-       //array[i][j]++; //good perf, see output 2
+       array[i][j]++; //good performance, see output 1
+       //array[j][i]++; //bad performance, see output 2
   return 0;
 }
 
@@ -26,7 +26,8 @@ output 1:
          955888021 cycles                    #    0.000 GHz                      ( +-  0.12% )
 
        0.399979644 seconds time elapsed                                          ( +-  0.12% )
-	   
+
+output 2:
     Performance counter stats for './cpu-cache-test' (5 runs):
 
            3089585 cache-misses              #    3.034 % of all cache refs      ( +-  0.72% )
